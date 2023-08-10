@@ -10,7 +10,7 @@ sudo apt-get install libxt6 # This is need according to a similar error in: http
 ## devtools sparkline 
 R -e 'devtools::install_github("Bart6114/sparklines")'
 
-# Install Python packages:
+# Install Python packages, also can be used as "requirements.txt":
 pip3 install requests
 pip3 install pandas
 pip3 install bs4

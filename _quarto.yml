@@ -1,0 +1,31 @@
+project:
+  type: default
+  execute-dir: project
+  output-dir: reports
+
+toc: true
+number-sections: true
+  
+format: 
+  html: 
+    embed-resources: true #Para generar un solo archivo html
+    toc: true # Tabla de contenidos
+    html-math-method: katex
+    theme: zephyr # css: styles.css FOR STYLES OR THEME
+
+editor:
+  render-on-save: false # Para hacer live preview
+
+execute:
+  echo: false # Para no mostrar código
+  message: false # No mostrar mensajes
+  warning: false # No mostrad advertencias
+  cache: true # para no renderizar chunks de nuevo, ahorra tiempo
+
+lang: es #Para cambiar idioma de elementos como "Table of contents"
+
+language:
+  en:
+    title-block-published: "Updated"
+  es:
+    title-block-published: "Actualizado" #Customizar fecha de actualización

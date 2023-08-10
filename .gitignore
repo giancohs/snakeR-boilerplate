@@ -5,3 +5,4 @@
 
 #Ignore Quarto cache
 reports/exploration_cache/
+/.quarto/
