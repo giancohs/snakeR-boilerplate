@@ -17,6 +17,7 @@ pip3 install bs4
 pip3 install selenium
 sudo apt-get install python3-lxml # This is for pandas parser
 pip3 install openpyxl
+pip3 install ipykernel #For Jupyter notebooks
 
 
 
