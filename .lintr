@@ -1,0 +1,8 @@
+linters: linters_with_defaults( # .lintr config file to avoid warning about line limit in VS Code 
+    line_length_linter(400), 
+    commented_code_linter = NULL,
+    indentation_linter(indent= 4L)
+  )
+
+  
+
