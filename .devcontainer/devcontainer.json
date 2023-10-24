@@ -1,14 +1,13 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver
 {
-	"name": "project-name",
+	"name": "rin-madera",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3", // This image includes Python 3.10.6 (May 29, 2023)
+	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.2", // This image includes Python 3.8.10 (May 3, 2021)
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
         "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-            "packages": "plotly,here,readxl,networkD3,leaflet,sf,spData,reactable",
-            "installSystemRequirements": true
+            "packages": "plotly,here,readxl,networkD3,leaflet,sf,spData,reactable"
         }	
     },
 	
