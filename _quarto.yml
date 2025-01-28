@@ -1,7 +1,7 @@
 project:
   type: default
   execute-dir: project
-  output-dir: reports
+  output-dir: reports-rendered
 
 toc: true
 number-sections: true
