@@ -1,12 +1,12 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver
 {
-	// UI name (Cursor/VS Code) and container name = repo/folder name. Uses workspace folder when you "Open Folder" then "Reopen in Container". If you use "Clone in Container" and see a random name, set both to your repo name explicitly.
-	"name": "${localWorkspaceFolderBasename}",
+	// Display and container name. "Clone in Container" has no local folder so we use a fixed name; replace with your repo name when using this as a template. For "Open Folder" → "Reopen in Container" you can use "${localWorkspaceFolderBasename}" for both if your client supports it.
+	"name": "snakeR-boilerplate",
 	// Base image; actual Ubuntu/R/Python versions are written to docs-and-references/installed-versions.md by install-dev-tools.sh
 	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3",
-	// Docker container name = same as UI (avoids random names like "wizardly_driscoll"). Image will still show long "vsc-...-features" in Docker Images when using features—that is expected and not configurable.
-	"runArgs": ["--name", "${localWorkspaceFolderBasename}"],
+	// Container name in Docker (avoids long/random names when using "Clone in Container"). Replace with your repo name when using this template for a new repo.
+	"runArgs": ["--name", "snakeR-boilerplate"],
 
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1.1.2": {},
@@ -24,8 +24,8 @@
 	// ADDED: Forward the web port so you can view the desktop from your host browser
 	"forwardPorts": [6080, 5901],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bash install-dev-tools.sh",
+	// Runs when workspace is available. postCreateCommand often runs before the repo exists in "Clone in Container", so we use postStartCommand; the script is idempotent (runs once per container).
+	"postStartCommand": "bash install-dev-tools.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {

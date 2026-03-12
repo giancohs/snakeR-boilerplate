@@ -10,8 +10,18 @@
 # Usage: run with appropriate privileges (e.g. sudo bash install-dev-tools.sh
 #        or from a devcontainer that runs this as part of build).
 #
+# Idempotent: skips if already run in this container (uses /tmp marker so
+# it runs again after a container rebuild; used by postStartCommand for
+# "Clone in Container" where postCreateCommand runs before the repo exists).
+#
 
 set -e
+
+MARKER="/tmp/devcontainer-install-dev-tools.done"
+if [[ -f "$MARKER" ]]; then
+	echo "install-dev-tools.sh: already run in this container (remove $MARKER to re-run)."
+	exit 0
+fi
 
 # =============================================================================
 # 1. System: 32-bit libraries and base updates
@@ -147,6 +157,7 @@ Download URL used: \`$CHROMEDRIVER_URL\`
 EOF
 
 echo "Versions written to: $VERSIONS_DIR/installed-versions.md"
+touch "$MARKER"
 
 # =============================================================================
 # Legacy / reference (2023 method)
