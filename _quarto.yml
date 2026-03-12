@@ -1,7 +1,7 @@
 project:
   type: default
   execute-dir: project
-  output-dir: reports-rendered
+  output-dir: notebooks-rendered
 
 toc: true
 number-sections: true

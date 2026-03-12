@@ -3,32 +3,38 @@
 {
 	"name": "snakeR-boilerplate",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3", // This image includes Python 3.8.10 (May 3, 2021)
+	// Base image; actual Ubuntu/R/Python versions are written to docs-and-references/installed-versions.md by install-dev-tools.sh
+	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3",
+	"containerEnv": {
+		"DEVCONTAINER_IMAGE": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3"
+	},
+
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1.1.2": {},
-        // currently have some issues to install r-packages. (31/10/2023)
+		// ADDED: Lightweight virtual desktop for GUI apps like Chrome
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+			"webPort": "6080",
+			"vncPort": "5901"
+		}
+		// currently have some issues to install r-packages. (31/10/2023)
 		//"ghcr.io/rocker-org/devcontainer-features/r-packages:1.0.3": {
-        //    "packages": "plotly,here,readxl,networkD3,leaflet,sf,spData,reactable"
-        //}	
-    },
-	
+		//    "packages": "plotly,here,readxl,networkD3,leaflet,sf,spData,reactable"
+		//}	
+	},
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// ADDED: Forward the web port so you can view the desktop from your host browser
+	"forwardPorts": [6080, 5901],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "bash install-dev-tools.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
-		// Configure properties specific to VS Code.
+		// Configure properties specific to VS Code/Cursor.
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": ["ms-python.python", "ms-toolsai.jupyter"]
-		  }
+		}
 	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
