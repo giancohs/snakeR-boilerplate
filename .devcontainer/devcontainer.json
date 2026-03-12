@@ -5,9 +5,6 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	// Base image; actual Ubuntu/R/Python versions are written to docs-and-references/installed-versions.md by install-dev-tools.sh
 	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3",
-	"containerEnv": {
-		"DEVCONTAINER_IMAGE": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3"
-	},
 
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1.1.2": {},
