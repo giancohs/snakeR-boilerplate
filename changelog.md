@@ -1,3 +1,7 @@
+NOTA:
+
+Luego de intentar mejorar y actualizar la plantilla, se tomó la decisión de hacer una reestructuración completa del flujo de trabajo. Ya no se usará esta plantilla, pero quedará como archivo para revisión a futuro si es necesario. Los demás proyectos deberían funcionar como están ya que tienen su propia imagen a constuir cada vez que se clona el repositorio. 
+
 # Changelog
 
 ## [0.1.1] - 2026-03-12
