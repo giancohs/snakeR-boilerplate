@@ -1,10 +1,12 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/rocker-org/devcontainer-templates/tree/main/src/r-ver
 {
-	"name": "snakeR-boilerplate",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// UI name (Cursor/VS Code) and container name = repo/folder name. Uses workspace folder when you "Open Folder" then "Reopen in Container". If you use "Clone in Container" and see a random name, set both to your repo name explicitly.
+	"name": "${localWorkspaceFolderBasename}",
 	// Base image; actual Ubuntu/R/Python versions are written to docs-and-references/installed-versions.md by install-dev-tools.sh
 	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.3",
+	// Docker container name = same as UI (avoids random names like "wizardly_driscoll"). Image will still show long "vsc-...-features" in Docker Images when using features—that is expected and not configurable.
+	"runArgs": ["--name", "${localWorkspaceFolderBasename}"],
 
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1.1.2": {},
